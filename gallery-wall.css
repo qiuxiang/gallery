@@ -17,10 +17,44 @@ body {
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  position: relative;
+}
+
+.gallery-item:hover .gallery-photo-info {
+  display: block;
 }
 
 .gallery-photo-info {
   display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-image: linear-gradient(transparent 70%, rgba(0, 0, 0, 0.33));
+  color: #fff;
+}
+
+.gallery-photo-name {
+  margin-bottom: 5px;
+}
+
+.gallery-photo-description {
+  color: #ddd;
+  font-size: 12px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.gallery-photo-description a {
+  color: #ddd;
+}
+
+.gallery-photo-info-wapper {
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
 }
 
 .gallery-photo {
