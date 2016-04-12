@@ -137,20 +137,20 @@ GalleryWall.prototype.sizes5 = function () {
 
 GalleryWall.prototype.sizes6 = function () {
   var width = this.element.clientWidth / 3
-  var height = this.element.clientHeight / 3
+  var height = Math.ceil(this.element.clientHeight / 3)
 
   return [
     {
       width: width * 2,
-      height: Math.ceil(height * 2)
+      height: height * 2
     },
     {
       width: width,
-      height: Math.ceil(height)
+      height: height
     },
     {
       width: width,
-      height: Math.ceil(height)
+      height: height
     },
     {
       width: width,
