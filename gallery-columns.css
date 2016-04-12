@@ -1,3 +1,7 @@
+body {
+  background-color: #f0f0f0;
+}
+
 .gallery {
   margin-top: 16px;
 }
@@ -12,6 +16,11 @@
 .gallery-image {
   width: 100%;
   display: block;
+  cursor: zoom-in;
+}
+
+.gallery-image:hover {
+  opacity: 0.8;
 }
 
 .gallery-item {
@@ -19,6 +28,7 @@
   box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
   border-radius: 4px;
   overflow: hidden;
+  background-color: #fff;
 }
 
 .gallery-photo-info {
@@ -37,4 +47,30 @@
 
 .gallery-photo-description a {
   color: #999;
+}
+
+.gallery-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0);
+  display: none;
+}
+
+.gallery-modal.active {
+  background-color: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+.gallery-modal-image-wrapper {
+  margin: 40px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+}
+
+.gallery-modal-image {
+  width: 100%;
+  display: block;
 }

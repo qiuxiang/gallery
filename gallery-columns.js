@@ -12,6 +12,31 @@ GalleryColumns.prototype.init = function () {
   }
   this.element.innerHTML = html
   this.columns = this.element.querySelectorAll('.gallery-column')
+
+  this.modal = document.createElement('div')
+  this.modal.className = 'gallery-modal'
+  this.modal.innerHTML = '<div class="gallery-modal-image-wrapper"><img class="gallery-modal-image"></div>'
+  this.modal.addEventListener('click', (function (event) {
+    if (event.target == this.modal) {
+      this.modal.classList.remove('active')
+    }
+  }).bind(this))
+  document.body.appendChild(this.modal)
+  this.image = document.querySelector('.gallery-modal-image')
+  this.imageWrapper = document.querySelector('.gallery-modal-image-wrapper')
+}
+
+GalleryColumns.prototype.showImage = function (photo) {
+  var windowAspectRatio = innerWidth / innerHeight
+  if (windowAspectRatio > photo.aspect_ratio) {
+    this.imageWrapper.style.width = (innerHeight - 80) * photo.aspect_ratio + 'px'
+  } else {
+    this.imageWrapper.style.width = (innerWidth - 80) + 'px'
+  }
+
+  console.log(photo.aspect_ratio)
+  this.modal.classList.add('active')
+  this.image.src = photo.image.large
 }
 
 GalleryColumns.prototype.append = function (photos) {
@@ -25,9 +50,12 @@ GalleryColumns.prototype.append = function (photos) {
       '<div class="gallery-photo-info">' +
         '<div class="gallery-photo-name">' + photo.name + '</div>' +
         '<div class="gallery-photo-description">' + photo.description + '</div>' +
-      '</div>'  
+      '</div>'
     this.getMinColumn().appendChild(item)
     item.querySelector('.gallery-photo').style.height = parseInt(item.clientWidth / photo.aspect_ratio) + 'px'
+    item.querySelector('.gallery-image').addEventListener('click', (function () {
+      this.showImage(photo)
+    }).bind(this))
   }).bind(this))
 }
 
