@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>多功能相册之瀑布流</title>
+  <link rel="stylesheet" href="spinner.css">
+  <link rel="stylesheet" href="gallery-columns.css">
+</head>
+<body>
+<div class="container">
+  <div class="gallery"></div>
+  <div class="spinner">
+    <div class="double-bounce1"></div>
+    <div class="double-bounce2"></div>
+  </div>
+</div>
+<script src="promise.js"></script>
+<script src="utils.js"></script>
+<script src="gallery-columns.js"></script>
+<script>
+  var Application = function () {
+    this.gallery = new GalleryColumns('.gallery')
+    this.spinner = document.querySelector('.spinner')
+    this.loading = false
+    this.page = 1
+    this.load()
+
+    window.addEventListener('scroll', (function (event) {
+      if (scrollY + innerHeight >= document.body.clientHeight && !this.loading) {
+        this.page += 1
+        this.load()
+      }
+    }).bind(this))
+  }
+
+  Application.prototype.load = function (page) {
+    this.spinner.style.display = 'block'
+    this.loading = true
+    getPhotos(this.page).then((function (photos) {
+      this.gallery.append(photos)
+      this.spinner.style.display = 'none'
+      this.loading = false
+    }).bind(this))
+  }
+
+  new Application()
+</script>
+</body>
+</html>

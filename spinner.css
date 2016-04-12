@@ -2,11 +2,8 @@
   width: 40px;
   height: 40px;
 
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -25px;
-  margin-left: -25px;
+  position: relative;
+  margin: 50px auto;
 }
 
 .double-bounce1, .double-bounce2 {
