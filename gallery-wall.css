@@ -1,0 +1,28 @@
+html, body, .gallery {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.gallery:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.gallery-item {
+  float: left;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.gallery-photo-info {
+  display: none;
+}
+
+.gallery-photo {
+  height: 100%;
+}
