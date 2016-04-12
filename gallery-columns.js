@@ -73,9 +73,7 @@ GalleryColumns.prototype.append = function (photos) {
       '</div>'
     this.getMinColumn().appendChild(item)
     item.querySelector('.gallery-photo').style.height = parseInt(item.clientWidth / photo.aspect_ratio) + 'px'
-    item.querySelector('.gallery-image').addEventListener('click', (function () {
-      this.showImage(photo)
-    }).bind(this))
+    item.querySelector('.gallery-image').addEventListener('click', this.showImage.bind(this, photo))
   }).bind(this))
 }
 
