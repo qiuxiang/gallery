@@ -137,15 +137,15 @@ GalleryWall.prototype.sizes6 = function () {
   return [
     {
       width: width * 2,
-      height: Math.floor(height * 2)
+      height: Math.ceil(height * 2)
     },
     {
       width: width,
-      height: height
+      height: Math.ceil(height)
     },
     {
       width: width,
-      height: height
+      height: Math.ceil(height)
     },
     {
       width: width,

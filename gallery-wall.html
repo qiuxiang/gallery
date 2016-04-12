@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>多功能相册之拼图布局</title>
+  <link rel="stylesheet" href="spinner.css">
   <link rel="stylesheet" href="gallery-wall.css">
 </head>
 <body>
@@ -12,11 +13,16 @@
 <div class="gallery" id="gallery-4"></div>
 <div class="gallery" id="gallery-5"></div>
 <div class="gallery" id="gallery-6"></div>
+<div class="spinner">
+  <div class="double-bounce1"></div>
+  <div class="double-bounce2"></div>
+</div>
 <script src="promise.js"></script>
 <script src="utils.js"></script>
 <script src="gallery-wall.js"></script>
 <script>
   getPhotos().then(function (photos) {
+    document.querySelector('.spinner').style.display = 'none'
     new GalleryWall('#gallery-1', photos.slice(0, 1))
     new GalleryWall('#gallery-2', photos.slice(1, 3))
     new GalleryWall('#gallery-3', photos.slice(3, 6))
