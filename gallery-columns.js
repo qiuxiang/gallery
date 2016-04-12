@@ -19,7 +19,10 @@ GalleryColumns.prototype.initModal = function () {
   this.modal = document.createElement('div')
   this.modal.className = 'gallery-modal'
   this.modal.innerHTML =
-    '<img class="gallery-modal-spinner" src="spinner.svg">' +
+    '<div class="gallery-modal-spinner spinner">' +
+      '<div class="double-bounce1"></div>' +
+      '<div class="double-bounce2"></div>' +
+    '</div>' +
     '<div class="gallery-modal-image-wrapper"><img class="gallery-modal-image"></div>'
   document.body.appendChild(this.modal)
 
@@ -29,12 +32,13 @@ GalleryColumns.prototype.initModal = function () {
     }
   }).bind(this))
 
+  this.imageWrapper = document.querySelector('.gallery-modal-image-wrapper')
+  this.spinner = document.querySelector('.gallery-modal-spinner')
+
   this.image = document.querySelector('.gallery-modal-image')
   this.image.addEventListener('load', (function () {
-    this.image.style.display = 'block'
+    this.spinner.style.zIndex = -1
   }).bind(this))
-
-  this.imageWrapper = document.querySelector('.gallery-modal-image-wrapper')
 }
 
 GalleryColumns.prototype.showImage = function (photo) {
@@ -50,8 +54,8 @@ GalleryColumns.prototype.showImage = function (photo) {
       this.imageWrapper.style.marginTop = (innerHeight - (innerWidth - 100) / photo.aspect_ratio) / 2 + 'px'
     }
 
-    this.image.style.display = 'none'
     this.image.src = photo.image.large
+    this.spinner.style.zIndex = 1
   }
 }
 
