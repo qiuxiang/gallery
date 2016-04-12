@@ -21,7 +21,7 @@
 <script src="utils.js"></script>
 <script src="gallery-wall.js"></script>
 <script>
-  getPhotos().then(function (photos) {
+  getPhotos(2).then(function (photos) {
     document.querySelector('.spinner').style.display = 'none'
     new GalleryWall('#gallery-1', photos.slice(0, 1))
     new GalleryWall('#gallery-2', photos.slice(1, 3))
