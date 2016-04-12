@@ -68,3 +68,13 @@ body {
   margin-top: -25px;
   margin-left: -25px;
 }
+
+.gallery-2 .gallery-item {
+  position: absolute;
+}
+
+.gallery-2 .gallery-item:last-child {
+  right: 0;
+  -webkit-clip-path: polygon(33.33% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(33.33% 0, 100% 0, 100% 100%, 0% 100%);
+}

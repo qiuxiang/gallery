@@ -42,13 +42,15 @@ GalleryWall.prototype.sizes1 = function () {
 }
 
 GalleryWall.prototype.sizes2 = function () {
+  var width = this.element.clientWidth * 2 / 3
+    
   return [
     {
-      width: this.element.clientWidth / 2,
+      width: width,
       height: this.element.clientHeight
     },
     {
-      width: this.element.clientWidth / 2,
+      width: width,
       height: this.element.clientHeight
     }
   ]
