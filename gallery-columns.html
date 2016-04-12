@@ -19,7 +19,17 @@
 <script src="gallery-columns.js"></script>
 <script>
   var Application = function () {
-    this.gallery = new GalleryColumns('.gallery')
+    var columns = 2
+
+    if (innerWidth > 1200) {
+      columns = 5
+    } else if (innerWidth > 992) {
+      columns = 4
+    } else if (innerWidth > 768) {
+      columns = 3
+    }
+
+    this.gallery = new GalleryColumns('.gallery', columns)
     this.spinner = document.querySelector('.spinner')
     this.loading = false
     this.page = 1
