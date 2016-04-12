@@ -98,31 +98,34 @@ GalleryWall.prototype.sizes4 = function () {
 }
 
 GalleryWall.prototype.sizes5 = function () {
+  var width = this.element.clientWidth / 3
+  var height = this.element.clientHeight / 3
   var sizes = [
     {
-      width: this.element.clientWidth * 2 / 3,
-      height: this.element.clientHeight * 2 / 3
+      width: width * 2,
+      height: height * 2
     },
     {
       right: true,
-      width: this.element.clientWidth / 3,
-      height: this.element.clientWidth / 3
+      width: width,
+      height: width
     },
     {
       right: true,
-      width: this.element.clientWidth / 3,
-      height: this.element.clientHeight - this.element.clientWidth / 3
+      width: width,
+      height: this.element.clientHeight - width
     },
     {
-      width: this.element.clientWidth / 3,
-      height: this.element.clientHeight / 3
+      width: width,
+      height: height
     },
     {
-      width: this.element.clientWidth / 3,
-      height: this.element.clientHeight / 3
+      width: width,
+      height: height
     }
   ]
   
+  // 由于使用了浮动，在某些情况下，为了避免某些元素被卡住，需要调整下顺序
   if (this.element.clientWidth > this.element.clientHeight * 2) {
     sizes.push(sizes.splice(2, 1)[0])
   }
