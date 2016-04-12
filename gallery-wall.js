@@ -1,11 +1,11 @@
 var GalleryWall = function (selector, photos) {
   this.element = document.querySelector(selector)
   this.photos = photos.slice(0, 6)
-  this.init()
+  this.initColumns()
   this.setSizes()
 }
 
-GalleryWall.prototype.init = function () {
+GalleryWall.prototype.initColumns = function () {
   this.element.classList.add('gallery-' + this.photos.length)
   this.element.innerHTML = this.photos.reduce(function (html, item) {
     html +=

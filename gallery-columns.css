@@ -66,11 +66,20 @@ body {
 }
 
 .gallery-modal-image-wrapper {
-  margin: 40px auto;
+  margin: 50px auto;
   box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
 }
 
 .gallery-modal-image {
   width: 100%;
   display: block;
+}
+
+.gallery-modal-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -77px;
+  margin-left: -77px;
+  z-index: -1;
 }

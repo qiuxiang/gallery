@@ -1,10 +1,11 @@
 var GalleryColumns = function (selector, col) {
   this.element = document.querySelector(selector)
   this.col = col || 5
-  this.init()
+  this.initColumns()
+  this.initModal()
 }
 
-GalleryColumns.prototype.init = function () {
+GalleryColumns.prototype.initColumns = function () {
   var width = this.element.clientWidth / this.col
   var html = ''
   for (var i = 0; i < this.col; i += 1) {
@@ -12,31 +13,46 @@ GalleryColumns.prototype.init = function () {
   }
   this.element.innerHTML = html
   this.columns = this.element.querySelectorAll('.gallery-column')
+}
 
+GalleryColumns.prototype.initModal = function () {
   this.modal = document.createElement('div')
   this.modal.className = 'gallery-modal'
-  this.modal.innerHTML = '<div class="gallery-modal-image-wrapper"><img class="gallery-modal-image"></div>'
+  this.modal.innerHTML =
+    '<img class="gallery-modal-spinner" src="spinner.svg">' +
+    '<div class="gallery-modal-image-wrapper"><img class="gallery-modal-image"></div>'
+  document.body.appendChild(this.modal)
+
   this.modal.addEventListener('click', (function (event) {
     if (event.target == this.modal) {
       this.modal.classList.remove('active')
     }
   }).bind(this))
-  document.body.appendChild(this.modal)
+
   this.image = document.querySelector('.gallery-modal-image')
+  this.image.addEventListener('load', (function () {
+    this.image.style.display = 'block'
+  }).bind(this))
+
   this.imageWrapper = document.querySelector('.gallery-modal-image-wrapper')
 }
 
 GalleryColumns.prototype.showImage = function (photo) {
-  var windowAspectRatio = innerWidth / innerHeight
-  if (windowAspectRatio > photo.aspect_ratio) {
-    this.imageWrapper.style.width = (innerHeight - 80) * photo.aspect_ratio + 'px'
-  } else {
-    this.imageWrapper.style.width = (innerWidth - 80) + 'px'
-  }
-
-  console.log(photo.aspect_ratio)
   this.modal.classList.add('active')
-  this.image.src = photo.image.large
+
+  if (this.image.src != photo.image.large) {
+    var windowAspectRatio = innerWidth / innerHeight
+    
+    if (windowAspectRatio > photo.aspect_ratio) {
+      this.imageWrapper.style.width = (innerHeight - 100) * photo.aspect_ratio + 'px'
+    } else {
+      this.imageWrapper.style.width = (innerWidth - 100) + 'px'
+      this.imageWrapper.style.marginTop = (innerHeight - (innerWidth - 100) / photo.aspect_ratio) / 2 + 'px'
+    }
+
+    this.image.style.display = 'none'
+    this.image.src = photo.image.large
+  }
 }
 
 GalleryColumns.prototype.append = function (photos) {
