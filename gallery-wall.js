@@ -1,3 +1,10 @@
+/**
+ * 拼图布局
+ *
+ * @param {string} selector
+ * @param {[]} photos
+ * @constructor
+ */
 var GalleryWall = function (selector, photos) {
   this.element = document.querySelector(selector)
   this.photos = photos.slice(0, 6)

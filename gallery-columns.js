@@ -1,3 +1,10 @@
+/**
+ * 瀑布流布局
+ * 
+ * @param selector
+ * @param col
+ * @constructor
+ */
 var GalleryColumns = function (selector, col) {
   this.element = document.querySelector(selector)
   this.col = col || 5
