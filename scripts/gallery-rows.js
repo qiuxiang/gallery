@@ -13,6 +13,9 @@ var GalleryColumns = function (selector, minHeight) {
   this.photos = []
 }
 
+/**
+ * @param {Array} photos
+ */
 GalleryColumns.prototype.append = function (photos) {
   var self = this
 
@@ -39,6 +42,12 @@ GalleryColumns.prototype.append = function (photos) {
   })
 }
 
+/**
+ * 计算布局
+ *
+ * @param {Array} photos
+ * @returns {Array}
+ */
 GalleryColumns.prototype.getRows = function (photos) {
   // 合并上次剩下的相片
   photos = this.photos.concat(photos)

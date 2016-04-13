@@ -1,8 +1,8 @@
 /**
  * 瀑布流布局
  * 
- * @param selector
- * @param col
+ * @param {string} selector
+ * @param {int} [col=5]
  * @constructor
  */
 var GalleryColumns = function (selector, col) {
@@ -21,6 +21,9 @@ GalleryColumns.prototype.init = function () {
   this.columns = this.element.querySelectorAll('.gallery-column')
 }
 
+/**
+ * @param {Array} photos
+ */
 GalleryColumns.prototype.append = function (photos) {
   photos.forEach((function (photo) {
     var item = document.createElement('div')

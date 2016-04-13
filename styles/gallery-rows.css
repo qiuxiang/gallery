@@ -29,4 +29,5 @@ body {
 
 .gallery-image:hover {
   cursor: zoom-in;
+  opacity: 0.8;
 }

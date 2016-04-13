@@ -1,3 +1,6 @@
+/**
+ * @constructor
+ */
 var Modal = function () {
   var self = this
 
@@ -28,6 +31,11 @@ var Modal = function () {
   document.body.appendChild(this.$modal)
 }
 
+/**
+ * @param {string} url
+ * @param {int} width
+ * @param {int} height
+ */
 Modal.prototype.show = function (url, width, height) {
   document.body.style.overflow = 'hidden'
   this.$modal.classList.add('active')
