@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>多功能相册之拼图布局</title>
-  <link rel="stylesheet" href="styles/spinner.css">
-  <link rel="stylesheet" href="styles/gallery-wall.css">
+  <link rel="stylesheet" href="../styles/spinner.css">
+  <link rel="stylesheet" href="../styles/gallery-wall.css">
 </head>
 <body>
 <div class="gallery" id="gallery-1"></div>
@@ -17,9 +17,9 @@
   <div class="double-bounce1"></div>
   <div class="double-bounce2"></div>
 </div>
-<script src="scripts/promise.js"></script>
-<script src="scripts/utils.js"></script>
-<script src="scripts/gallery-wall.js"></script>
+<script src="../scripts/promise.js"></script>
+<script src="../scripts/utils.js"></script>
+<script src="../scripts/gallery-wall.js"></script>
 <script>
   getPhotos().then(function (photos) {
     document.querySelector('.spinner').style.display = 'none'
