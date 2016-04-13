@@ -26,7 +26,10 @@ GalleryColumns.prototype.append = function (photos) {
       html +=
         '<div class="gallery-item-wrapper">' +
           '<div class="gallery-item">' +
-            '<img class="gallery-image" src="' + photo.image.small + '">' +
+            '<img ' +
+              'title="' + photo.name + '" ' +
+              'class="gallery-image" data-large="' + photo.image.large + '" ' +
+              'src="' + photo.image.small + '">' +
           '</div>' +
         '</div>'
       return html

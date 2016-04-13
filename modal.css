@@ -1,0 +1,32 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  display: none;
+}
+
+.modal.active {
+  background-color: rgba(0, 0, 0, .6);
+  display: block;
+}
+
+.modal-container {
+  margin: 50px auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
+}
+
+.modal-image {
+  width: 100%;
+  display: block;
+}
+
+.modal .spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+}

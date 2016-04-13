@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>多功能相册之瀑布流</title>
   <link rel="stylesheet" href="spinner.css">
+  <link rel="stylesheet" href="modal.css">
   <link rel="stylesheet" href="gallery-rows.css">
 </head>
 <body>
@@ -16,15 +17,26 @@
 </div>
 <script src="promise.js"></script>
 <script src="utils.js"></script>
+<script src="modal.js"></script>
 <script src="gallery-rows.js"></script>
 <script>
   var Application = function () {
+    this.$spinner = document.querySelector('.spinner')
     this.gallery = new GalleryColumns('.gallery')
-    this.spinner = document.querySelector('.spinner')
+    this.modal = new Modal()
     this.loading = false
     this.page = 1
     this.load()
+
     window.addEventListener('scroll', this.scroll.bind(this))
+    document.addEventListener('click', this.click.bind(this))
+  }
+
+  Application.prototype.click = function (event) {
+    var $target = event.target
+    if ($target.className == 'gallery-image') {
+      this.modal.show($target.dataset.large, $target.clientWidth, $target.clientHeight)
+    }
   }
 
   Application.prototype.scroll = function () {
@@ -35,13 +47,13 @@
   }
 
   Application.prototype.loaded = function (photos) {
-    this.gallery.append(photos)
-    this.spinner.style.display = 'none'
+    this.$spinner.style.display = 'none'
     this.loading = false
+    this.gallery.append(photos)
   }
 
   Application.prototype.load = function () {
-    this.spinner.style.display = 'block'
+    this.$spinner.style.display = 'block'
     this.loading = true
     getPhotos(this.page++).then(this.loaded.bind(this))
   }
