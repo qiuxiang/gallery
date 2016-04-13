@@ -21,7 +21,7 @@
 <script src="../scripts/gallery-rows.js"></script>
 <script>
   var Application = function () {
-    this.$spinner = document.querySelector('.spinner')
+    this.spinner = document.querySelector('.spinner')
     this.gallery = new GalleryColumns('.gallery')
     this.modal = new Modal()
     this.loading = false
@@ -47,13 +47,13 @@
   }
 
   Application.prototype.loaded = function (photos) {
-    this.$spinner.style.display = 'none'
+    this.spinner.style.display = 'none'
     this.loading = false
     this.gallery.append(photos)
   }
 
   Application.prototype.load = function () {
-    this.$spinner.style.display = 'block'
+    this.spinner.style.display = 'block'
     this.loading = true
     getPhotos(this.page++).then(this.loaded.bind(this))
   }

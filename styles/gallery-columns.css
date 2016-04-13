@@ -53,37 +53,3 @@ body {
 .gallery-photo-description a {
   color: #999;
 }
-
-.gallery-modal {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0);
-  display: none;
-}
-
-.gallery-modal.active {
-  background-color: rgba(0, 0, 0, 0.6);
-  display: block;
-}
-
-.gallery-modal-image-wrapper {
-  margin: 50px auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .5)
-}
-
-.gallery-modal-image {
-  width: 100%;
-  display: block;
-}
-
-.gallery-modal-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -20px;
-  margin-left: -20px;
-}
