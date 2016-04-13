@@ -32,6 +32,10 @@ body {
   background-color: #fff;
 }
 
+.gallery-photo {
+  overflow: hidden;
+}
+
 .gallery-photo-info {
   padding: 10px;
   color: #333;
