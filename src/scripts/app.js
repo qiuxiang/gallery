@@ -3,7 +3,7 @@ var Application = function (gallery) {
   this.spinner = document.querySelector('.spinner')
   this.modal = new Modal()
   this.loading = false
-  this.page = 1
+  this.page = 0
   this.load()
 
   window.addEventListener('scroll', this.scroll.bind(this))
