@@ -3,6 +3,7 @@ var Application = function (gallery) {
   this.spinner = document.querySelector('.spinner')
   this.modal = new Modal()
   this.loading = false
+  this.source = 'so'
   this.page = 0
   this.load()
 
@@ -33,5 +34,5 @@ Application.prototype.loaded = function (photos) {
 Application.prototype.load = function () {
   this.spinner.style.display = 'block'
   this.loading = true
-  getPhotos(this.page++).then(this.loaded.bind(this))
+  getPhotos(this.page++, this.source).then(this.loaded.bind(this))
 }
