@@ -75,6 +75,6 @@ body {
 
 .gallery-2 .gallery-item:last-child {
   right: 0;
-  -webkit-clip-path: url(#clip-trapezoid);
-  clip-path: url(#clip-trapezoid);
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: url(../clip.svg#trapezoid);
 }

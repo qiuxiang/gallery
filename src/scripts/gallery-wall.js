@@ -13,7 +13,8 @@ var GalleryWall = function (selector, photos) {
 }
 
 GalleryWall.prototype.init = function () {
-  var html = this.photos.reduce(function (html, item) {
+  this.element.classList.add('gallery-' + this.photos.length)
+  this.element.innerHTML = this.photos.reduce(function (html, item) {
     html +=
       '<div class="gallery-item" style="background-image: url(' + item.image.large + ')">' +
         '<div class="gallery-photo-info">' +
@@ -25,20 +26,6 @@ GalleryWall.prototype.init = function () {
       '</div>'
     return html
   }, '')
-  
-  if (!document.getElementById('clip-trapezoid')) {
-    html +=
-      '<svg width="0" height="0">' +
-        '<defs>' +
-          '<clipPath id="clip-trapezoid" clipPathUnits="objectBoundingBox">' +
-            '<polygon points="0.5 0, 1 0, 1 1, 0 1"></polygon>' +
-          '</clipPath>' +
-        '</defs>' +
-      '</svg>'
-  }
-
-  this.element.innerHTML = html
-  this.element.classList.add('gallery-' + this.photos.length)
 }
 
 GalleryWall.prototype.setSizes = function () {
