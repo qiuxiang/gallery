@@ -3,7 +3,6 @@ var Application = function (gallery) {
   this.spinner = document.querySelector('.spinner')
   this.modal = new Modal()
   this.loading = false
-  this.source = '500px'
   this.page = 0
   this.load()
 

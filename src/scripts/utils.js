@@ -11,6 +11,6 @@ function request(url) {
 
 function getPhotos(page, source) {
   page = page || 0
-  source = source || '500px'
-  return request('http://test.facelending.com:3000/?source=' + source + '&page=' + page)
+  source = source || 'so'
+  return request('http://gallery-server.7c00.cc/?source=' + source + '&page=' + page)
 }
