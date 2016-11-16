@@ -58,7 +58,7 @@ GalleryColumns.prototype.getRows = function (photos) {
 
   for (var i = 0; i < photos.length; i += 1) {
     _photos.push(photos[i])
-    aspectRatio += photos[i].aspect_ratio
+    aspectRatio += photos[i].width / photos[i].height
 
     if (aspectRatio > this.minAspectRatio) {
       rows.push({

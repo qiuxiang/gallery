@@ -37,7 +37,7 @@ GalleryColumns.prototype.append = function (photos) {
         '<div class="gallery-photo-description">' + photo.description + '</div>' +
       '</div>'
     this.getMinColumn().appendChild(item)
-    item.querySelector('.gallery-photo').style.height = parseInt(item.clientWidth / photo.aspect_ratio) + 'px'
+    item.querySelector('.gallery-photo').style.height = parseInt(item.clientWidth * photo.height / photo.width) + 'px'
   }).bind(this))
 }
 
