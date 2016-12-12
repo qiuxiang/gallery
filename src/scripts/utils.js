@@ -11,6 +11,6 @@ function request(url) {
 
 function getPhotos(page, source) {
   page = page || 0
-  source = source || 'so'
+  source = source || ''
   return request('http://gallery-server.7c00.cc/?source=' + source + '&page=' + page)
 }
